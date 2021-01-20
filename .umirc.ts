@@ -5,8 +5,17 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-    { path: '/', redirect: '/login' },
-    { path: '/login', component: '@/pages/login' },
+    {
+      exact: false,
+      path: '/',
+      component: '@/layout/index',
+      routes: [
+        { exact: true, path: '/', component: '@/pages/chat' },
+        { exact: true, path: '/users', component: '@/pages/users' },
+        { exact: true, path: '/find', component: '@/pages/find' },
+        { exact: true, path: '/mine', component: '@/pages/mine' },
+      ],
+    },
   ],
   proxy: {
     '/api': {
