@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import './index.less';
-import loginPage from '@/pages/login';
+import LoginPage from '@/pages/login';
 
-const Header = () => {
-  <div className="headWrap">
-    <span className="text">chatroom</span>
-  </div>;
-};
 const Footer = () => {
   const [menuIndex, setMenuIndex] = useState(0);
   const menuData = [
     {
       index: 0,
       title: '聊天',
-      path: '/chat',
+      path: '/',
       icon: '',
     },
     {
@@ -37,13 +32,15 @@ const Footer = () => {
   ];
   return <div className="footWrap"></div>;
 };
-const indexPage = () => {
+const indexPage = (props) => {
   if (props.location.pathname === '/login') {
-    return <loginPage></loginPage>;
+    return <LoginPage />;
   }
   return (
     <>
-      <Header />
+      <div className="headWrap">
+        <span className="text">chatroom</span>
+      </div>
       {props.children}
       <Footer />
     </>
