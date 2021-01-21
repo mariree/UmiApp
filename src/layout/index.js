@@ -9,28 +9,28 @@ const Footer = () => {
       index: 0,
       title: '聊天',
       path: '/',
-      icon: '',
+      icon: 'chat',
     },
     {
       index: 1,
       title: '联系人',
       path: '/users',
-      icon: '',
+      icon: 'users',
     },
     {
       index: 3,
       title: '发现',
       path: '/find',
-      icon: '',
+      icon: 'find',
     },
     {
       index: 4,
       title: '我',
       path: '/mine',
-      icon: '',
+      icon: 'mine',
     },
   ];
-  return <div className="footWrap"></div>;
+  return <div className="footWrap">{menuData.map((item) => {})}</div>;
 };
 const indexPage = (props) => {
   if (props.location.pathname === '/login') {
@@ -39,9 +39,9 @@ const indexPage = (props) => {
   return (
     <>
       <div className="headWrap">
-        <span className="text">chatroom</span>
+        <span className="text">聊天室</span>
       </div>
-      {props.children}
+      <div className="bodyWrap">{props.children}</div>
       <Footer />
     </>
   );
