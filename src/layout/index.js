@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { history } from 'umi';
 import './index.less';
 import LoginPage from '@/pages/login';
 
@@ -25,12 +26,34 @@ const Footer = () => {
     },
     {
       index: 4,
-      title: '我',
+      title: '我的',
       path: '/mine',
       icon: 'mine',
     },
   ];
-  return <div className="footWrap">{menuData.map((item) => {})}</div>;
+  const changeTab = (item) => {
+    setMenuIndex(item.index);
+    history.push(item.path);
+  };
+  return (
+    <div className="footWrap">
+      {menuData.map((item) => (
+        <div
+          className="footItem"
+          key={item.index}
+          onClick={() => changeTab(item)}
+        >
+          <img
+            src={require('@/img/' +
+              item.icon +
+              (menuIndex == item.index ? '1' : '') +
+              '.png')}
+          />
+          <p>{item.title}</p>
+        </div>
+      ))}
+    </div>
+  );
 };
 const indexPage = (props) => {
   if (props.location.pathname === '/login') {

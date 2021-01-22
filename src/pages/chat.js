@@ -7,21 +7,47 @@ const chatPage = () => {
     setChatData(() => [
       {
         id: '0001',
-        name: 'admin',
-        image: '0',
+        name: '王小虎',
+        image: '4',
+        lastDialog: '还可以吧',
+        time: '昨天',
+      },
+      {
+        id: '0003',
+        name: '张三',
+        image: '1',
+        lastDialog: '还可以吧',
+        time: '昨天',
+      },
+      {
+        id: '0004',
+        name: '李四',
+        image: '12',
+        lastDialog: '还可以吧',
+        time: '昨天',
+      },
+
+      {
+        id: '0005',
+        name: '神奇',
+        image: '15',
+        lastDialog: '还可以吧',
+        time: '昨天',
       },
     ]);
   }, []);
   return (
     <div className="chatlist">
-      {chatData.map((item) => {
-        return (
-          <div className="chatItem" key={item.id}>
-            <span className="userImage"></span>
-            <span className="userName">{item.name}</span>
+      {chatData.map((item) => (
+        <div className="chatItem" key={item.id}>
+          <img src={require('@/img/userImages/user(' + item.image + ').png')} />
+          <div className="logContent">
+            <h5>{item.name}</h5>
+            <span>{item.time}</span>
+            <p>{item.lastDialog}</p>
           </div>
-        );
-      })}
+        </div>
+      ))}
     </div>
   );
 };
