@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { history } from 'umi';
 import './chat.less';
 
 const chatPage = () => {
@@ -36,10 +37,17 @@ const chatPage = () => {
       },
     ]);
   }, []);
+  const toChatting = (id) => {
+    history.push(`/chatting/${id}`);
+  };
   return (
     <div className="chatlist">
       {chatData.map((item) => (
-        <div className="chatItem" key={item.id}>
+        <div
+          className="chatItem"
+          key={item.id}
+          onClick={toChatting.bind(this, item.id)}
+        >
           <img src={require('@/img/userImages/user(' + item.image + ').png')} />
           <div className="logContent">
             <h5>{item.name}</h5>

@@ -14,6 +14,7 @@ export default defineConfig({
         { exact: true, path: '/users', component: '@/pages/users' },
         { exact: true, path: '/find', component: '@/pages/find' },
         { exact: true, path: '/mine', component: '@/pages/mine' },
+        { exact: true, path: '/chatting/:id', component: '@/pages/chatting' },
       ],
     },
   ],

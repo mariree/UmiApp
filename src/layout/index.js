@@ -5,6 +5,7 @@ import LoginPage from '@/pages/login';
 
 const Footer = () => {
   const [menuIndex, setMenuIndex] = useState(0);
+
   const menuData = [
     {
       index: 0,
@@ -56,13 +57,14 @@ const Footer = () => {
   );
 };
 const indexPage = (props) => {
+  const [headText, setHeadText] = useState('聊天室');
   if (props.location.pathname === '/login') {
     return <LoginPage />;
   }
   return (
     <>
       <div className="headWrap">
-        <span className="text">聊天室</span>
+        <span className="text">{headText}</span>
       </div>
       <div className="bodyWrap">{props.children}</div>
       <Footer />
